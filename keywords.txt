@@ -12,25 +12,24 @@ DFRobot_BMI160	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################	
 
-I2cInit	KEYWORD2
-getSensorData	KEYWORD2
+begin	KEYWORD2
+setGyroRange	KEYWORD2
+setAccelRange	KEYWORD2
+getAllData	KEYWORD2
 softReset	KEYWORD2
-setInt	KEYWORD2
-setStepCounter	KEYWORD2
-readStepCounter	KEYWORD2
-setStepPowerMode	KEYWORD2
-onlyAccel	KEYWORD2
-onlyGyro	KEYWORD2
-bothAccelGyro	KEYWORD2
-stepNormalPowerMode	KEYWORD2
-stepLowPowerMode	KEYWORD2
-getAccelData	KEYWORD2
-getGyroData	KEYWORD2
-getAccelGyroData	KEYWORD2
-
+setLowPower	KEYWORD2
+wakeUp	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
 #######################################
 
-BMI160_OK	LITERAL1
+eGyroRange_2000DPS	LITERAL1
+eGyroRange_1000DPS	LITERAL1
+eGyroRange_500DPS	LITERAL1
+eGyroRange_250DPS	LITERAL1
+eGyroRange_125DPS	LITERAL1
+eAccelRange_2G	LITERAL1
+eAccelRange_4G	LITERAL1
+eAccelRange_8G	LITERAL1
+eAccelRange_16G	LITERAL1
