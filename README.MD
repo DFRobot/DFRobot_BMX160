@@ -99,7 +99,7 @@ Arduino uno        |      √       |              |             |
 
 ## Credits
 
-Written by DFRobot_haoJ(hao.jiang@dfrobot.com), 2017. (Welcome to our [website](https://www.dfrobot.com/))
+Written by(yufeng.luo@dfrobot.com), 2017. (Welcome to our [website](https://www.dfrobot.com/))
 
 
 
