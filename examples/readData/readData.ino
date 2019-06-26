@@ -1,14 +1,8 @@
  /*!
   * readData.ino
   *
-  * I2C addr:
-  *   0x68: connect SDIO pin of the BMX160 to GND which means the default I2C address
-  *   0x69: set I2C address by parameter
-  *
   * Through the example, you can get the sensor data by using getSensorData:
-  * get acell by paremeter onlyAccel;
-  * get gyro by paremeter onlyGyro;
-  * get both acell and gyro by paremeter bothAccelGyro.
+  * get all data of magn, gyro, accel.
   * 
   * With the rotation of the sensor, data changes are visible.
   *
@@ -33,6 +27,7 @@ void setup(){
   }
   //bmx160.setLowPower();   //disable the gyro and accel sensor
   //bmx160.wakeUp();        //enable the gyro and accel sensor
+  //bmx160.softReset();     //reset the sensor
   
   /** @typedef enum{eGyroRange_2000DPS,
    *                eGyroRange_1000DPS,

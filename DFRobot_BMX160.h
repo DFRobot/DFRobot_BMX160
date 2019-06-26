@@ -1248,8 +1248,8 @@ class DFRobot_BMX160{
     void   defaultParamSettg(struct bmx160Dev *dev);
     float accelRange = BMX160_ACCEL_MG_LSB_2G;
     float gyroRange = BMX160_GYRO_SENSITIVITY_250DPS;
-    void setMagnConf();
     uint8_t _addr = 0x68;
+    void setMagnConf();
     struct bmx160Dev* Obmx160;
 
     struct bmx160SensorData* Omagn;
