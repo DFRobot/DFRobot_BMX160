@@ -25,8 +25,8 @@ void setup(){
     Serial.println("init false");
     while(1);
   }
-  //bmx160.setLowPower();   //disable the gyro and accel sensor
-  //bmx160.wakeUp();        //enable the gyro and accel sensor
+  //bmx160.setLowPower();   //disable the gyroscope and accelerometer sensor
+  //bmx160.wakeUp();        //enable the gyroscope and accelerometer sensor
   //bmx160.softReset();     //reset the sensor
   
   /** @typedef enum{eGyroRange_2000DPS,
@@ -54,21 +54,21 @@ void loop(){
   /* Get a new sensor event */
   bmx160.getAllData(&Omagn, &Ogyro, &Oaccel);
 
-  /* Display the magn results (magn is measured in uTesla) */
+  /* Display the magnetometer results (magn is magnetometer in uTesla) */
   Serial.print("M ");
   Serial.print("X: "); Serial.print(Omagn.x); Serial.print("  ");
   Serial.print("Y: "); Serial.print(Omagn.y); Serial.print("  ");
   Serial.print("Z: "); Serial.print(Omagn.z); Serial.print("  ");
   Serial.println("uT");
 
-  /* Display the gyro results (gyro data is in g) */
+  /* Display the gyroscope results (gyroscope data is in g) */
   Serial.print("G ");
   Serial.print("X: "); Serial.print(Ogyro.x); Serial.print("  ");
   Serial.print("Y: "); Serial.print(Ogyro.y); Serial.print("  ");
   Serial.print("Z: "); Serial.print(Ogyro.z); Serial.print("  ");
   Serial.println("g");
   
-  /* Display the accel results (accel data is in m/s^2) */
+  /* Display the accelerometer results (accelerometer data is in m/s^2) */
   Serial.print("A ");
   Serial.print("X: "); Serial.print(Oaccel.x    ); Serial.print("  ");
   Serial.print("Y: "); Serial.print(Oaccel.y    ); Serial.print("  ");

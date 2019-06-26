@@ -100,7 +100,7 @@ THE SOFTWARE.
 #define BMX160_INT2_LOW_STEP_DETECT_MASK         (0x01)
 #define BMX160_INT2_HIGH_G_MASK                  (0x02)
 #define BMX160_INT2_FIFO_FULL_MASK               (0x02)
-#define BMX160_INT2_FIFO_WM_MASK     (0x04)
+#define BMX160_INT2_FIFO_WM_MASK                 (0x04)
 #define BMX160_INT2_SLOPE_MASK                   (0x04)
 #define BMX160_INT2_DATA_READY_MASK              (0x08)
 #define BMX160_INT2_NO_MOTION_MASK               (0x08)
@@ -149,13 +149,13 @@ THE SOFTWARE.
 #define BMX160_AXES_EN_MASK                      (0x80)
 
 /** Mask definitions for FIFO_CONFIG register */
-#define BMX160_FIFO_GYRO       (0x80)
-#define BMX160_FIFO_ACCEL      (0x40)
-#define BMX160_FIFO_MAGN        (0x20)
-#define BMX160_FIFO_TAG_INT1       (0x08)
-#define BMX160_FIFO_TAG_INT2       (0x04)
-#define BMX160_FIFO_TIME       (0x02)
-#define BMX160_FIFO_HEADER       (0x10)
+#define BMX160_FIFO_GYRO                         (0x80)
+#define BMX160_FIFO_ACCEL                        (0x40)
+#define BMX160_FIFO_MAGN                         (0x20)
+#define BMX160_FIFO_TAG_INT1                     (0x08)
+#define BMX160_FIFO_TAG_INT2                     (0x04)
+#define BMX160_FIFO_TIME                         (0x02)
+#define BMX160_FIFO_HEADER                       (0x10)
 #define BMX160_FIFO_CONFIG_1_MASK                (0xFE)
 
 
@@ -194,140 +194,140 @@ THE SOFTWARE.
 #define BMX160_LATCHED                           (0x0F)
 
 /** bmx160 Register map */
-#define BMX160_CHIP_ID_ADDR    (0x00)
-#define BMX160_ERROR_REG_ADDR    (0x02)
-#define BMX160_MAG_DATA_ADDR     (0x04)
-#define BMX160_GYRO_DATA_ADDR    (0x0C)
-#define BMX160_ACCEL_DATA_ADDR     (0x12)
-#define BMX160_STATUS_ADDR     (0x1B)
-#define BMX160_INT_STATUS_ADDR     (0x1C)
-#define BMX160_FIFO_LENGTH_ADDR    (0x22)
-#define BMX160_FIFO_DATA_ADDR    (0x24)
-#define BMX160_ACCEL_CONFIG_ADDR   (0x40)
-#define BMX160_ACCEL_RANGE_ADDR    (0x41)
-#define BMX160_GYRO_CONFIG_ADDR    (0x42)
-#define BMX160_GYRO_RANGE_ADDR     (0x43)
-#define BMX160_MAGN_CONFIG_ADDR    (0x44)
-#define BMX160_FIFO_DOWN_ADDR            (0x45)
-#define BMX160_FIFO_CONFIG_0_ADDR        (0x46)
-#define BMX160_FIFO_CONFIG_1_ADDR        (0x47)
-#define BMX160_MAGN_RANGE_ADDR     (0x4B)
-#define BMX160_MAGN_IF_0_ADDR     (0x4C)
-#define BMX160_MAGN_IF_1_ADDR     (0x4D)
-#define BMX160_MAGN_IF_2_ADDR     (0x4E)
-#define BMX160_MAGN_IF_3_ADDR     (0x4F)
-#define BMX160_INT_ENABLE_0_ADDR          (0x50)
-#define BMX160_INT_ENABLE_1_ADDR          (0x51)
-#define BMX160_INT_ENABLE_2_ADDR          (0x52)
-#define BMX160_INT_OUT_CTRL_ADDR          (0x53)
-#define BMX160_INT_LATCH_ADDR             (0x54)
-#define BMX160_INT_MAP_0_ADDR             (0x55)
-#define BMX160_INT_MAP_1_ADDR             (0x56)
-#define BMX160_INT_MAP_2_ADDR             (0x57)
-#define BMX160_INT_DATA_0_ADDR            (0x58)
-#define BMX160_INT_DATA_1_ADDR            (0x59)
-#define BMX160_INT_LOWHIGH_0_ADDR         (0x5A)
-#define BMX160_INT_LOWHIGH_1_ADDR         (0x5B)
-#define BMX160_INT_LOWHIGH_2_ADDR         (0x5C)
-#define BMX160_INT_LOWHIGH_3_ADDR         (0x5D)
-#define BMX160_INT_LOWHIGH_4_ADDR         (0x5E)
-#define BMX160_INT_MOTION_0_ADDR          (0x5F)
-#define BMX160_INT_MOTION_1_ADDR          (0x60)
-#define BMX160_INT_MOTION_2_ADDR          (0x61)
-#define BMX160_INT_MOTION_3_ADDR          (0x62)
-#define BMX160_INT_TAP_0_ADDR             (0x63)
-#define BMX160_INT_TAP_1_ADDR             (0x64)
-#define BMX160_INT_ORIENT_0_ADDR          (0x65)
-#define BMX160_INT_ORIENT_1_ADDR          (0x66)
-#define BMX160_INT_FLAT_0_ADDR            (0x67)
-#define BMX160_INT_FLAT_1_ADDR            (0x68)
-#define BMX160_FOC_CONF_ADDR              (0x69)
-#define BMX160_CONF_ADDR                  (0x6A)
+#define BMX160_CHIP_ID_ADDR                      (0x00)
+#define BMX160_ERROR_REG_ADDR                    (0x02)
+#define BMX160_MAG_DATA_ADDR                     (0x04)
+#define BMX160_GYRO_DATA_ADDR                    (0x0C)
+#define BMX160_ACCEL_DATA_ADDR                   (0x12)
+#define BMX160_STATUS_ADDR                       (0x1B)
+#define BMX160_INT_STATUS_ADDR                   (0x1C)
+#define BMX160_FIFO_LENGTH_ADDR                  (0x22)
+#define BMX160_FIFO_DATA_ADDR                    (0x24)
+#define BMX160_ACCEL_CONFIG_ADDR                 (0x40)
+#define BMX160_ACCEL_RANGE_ADDR                  (0x41)
+#define BMX160_GYRO_CONFIG_ADDR                  (0x42)
+#define BMX160_GYRO_RANGE_ADDR                   (0x43)
+#define BMX160_MAGN_CONFIG_ADDR                  (0x44)
+#define BMX160_FIFO_DOWN_ADDR                    (0x45)
+#define BMX160_FIFO_CONFIG_0_ADDR                (0x46)
+#define BMX160_FIFO_CONFIG_1_ADDR                (0x47)
+#define BMX160_MAGN_RANGE_ADDR                   (0x4B)
+#define BMX160_MAGN_IF_0_ADDR                    (0x4C)
+#define BMX160_MAGN_IF_1_ADDR                    (0x4D)
+#define BMX160_MAGN_IF_2_ADDR                    (0x4E)
+#define BMX160_MAGN_IF_3_ADDR                    (0x4F)
+#define BMX160_INT_ENABLE_0_ADDR                 (0x50)
+#define BMX160_INT_ENABLE_1_ADDR                 (0x51)
+#define BMX160_INT_ENABLE_2_ADDR                 (0x52)
+#define BMX160_INT_OUT_CTRL_ADDR                 (0x53)
+#define BMX160_INT_LATCH_ADDR                    (0x54)
+#define BMX160_INT_MAP_0_ADDR                    (0x55)
+#define BMX160_INT_MAP_1_ADDR                    (0x56)
+#define BMX160_INT_MAP_2_ADDR                    (0x57)
+#define BMX160_INT_DATA_0_ADDR                   (0x58)
+#define BMX160_INT_DATA_1_ADDR                   (0x59)
+#define BMX160_INT_LOWHIGH_0_ADDR                (0x5A)
+#define BMX160_INT_LOWHIGH_1_ADDR                (0x5B)
+#define BMX160_INT_LOWHIGH_2_ADDR                (0x5C)
+#define BMX160_INT_LOWHIGH_3_ADDR                (0x5D)
+#define BMX160_INT_LOWHIGH_4_ADDR                (0x5E)
+#define BMX160_INT_MOTION_0_ADDR                 (0x5F)
+#define BMX160_INT_MOTION_1_ADDR                 (0x60)
+#define BMX160_INT_MOTION_2_ADDR                 (0x61)
+#define BMX160_INT_MOTION_3_ADDR                 (0x62)
+#define BMX160_INT_TAP_0_ADDR                    (0x63)
+#define BMX160_INT_TAP_1_ADDR                    (0x64)
+#define BMX160_INT_ORIENT_0_ADDR                 (0x65)
+#define BMX160_INT_ORIENT_1_ADDR                 (0x66)
+#define BMX160_INT_FLAT_0_ADDR                   (0x67)
+#define BMX160_INT_FLAT_1_ADDR                   (0x68)
+#define BMX160_FOC_CONF_ADDR                     (0x69)
+#define BMX160_CONF_ADDR                         (0x6A)
 
-#define BMX160_IF_CONF_ADDR     (0x6B)
-#define BMX160_SELF_TEST_ADDR     (0x6D)
-#define BMX160_OFFSET_ADDR      (0x71)
-#define BMX160_OFFSET_CONF_ADDR     (0x77)
-#define BMX160_INT_STEP_CNT_0_ADDR    (0x78)
-#define BMX160_INT_STEP_CONFIG_0_ADDR     (0x7A)
-#define BMX160_INT_STEP_CONFIG_1_ADDR     (0x7B)
-#define BMX160_COMMAND_REG_ADDR     (0x7E)
-#define BMX160_SPI_COMM_TEST_ADDR         (0x7F)
-#define BMX160_INTL_PULLUP_CONF_ADDR    (0x85)
+#define BMX160_IF_CONF_ADDR                      (0x6B)
+#define BMX160_SELF_TEST_ADDR                    (0x6D)
+#define BMX160_OFFSET_ADDR                       (0x71)
+#define BMX160_OFFSET_CONF_ADDR                  (0x77)
+#define BMX160_INT_STEP_CNT_0_ADDR               (0x78)
+#define BMX160_INT_STEP_CONFIG_0_ADDR            (0x7A)
+#define BMX160_INT_STEP_CONFIG_1_ADDR            (0x7B)
+#define BMX160_COMMAND_REG_ADDR                  (0x7E)
+#define BMX160_SPI_COMM_TEST_ADDR                (0x7F)
+#define BMX160_INTL_PULLUP_CONF_ADDR             (0x85)
 
 /** Error code definitions */
-#define BMX160_OK                        (0)
-#define BMX160_E_NULL_PTR                (-1)
-#define BMX160_E_COM_FAIL                (-2)
-#define BMX160_E_DEV_NOT_FOUND           (-3)
-#define BMX160_E_OUT_OF_RANGE            (-4)
-#define BMX160_E_INVALID_INPUT           (-5)
-#define BMX160_E_ACCEL_ODR_BW_INVALID    (-6)
-#define BMX160_E_GYRO_ODR_BW_INVALID     (-7)
-#define BMX160_E_LWP_PRE_FLTR_INT_INVALID (-8)
-#define BMX160_E_LWP_PRE_FLTR_INVALID   (-9)
-#define BMX160_E_MAGN_NOT_FOUND      (-10)
-#define BMX160_FOC_FAILURE      (-11)
-#define BMX160_ERR_CHOOSE      (-12)
+#define BMX160_OK                                (0)
+#define BMX160_E_NULL_PTR                        (-1)
+#define BMX160_E_COM_FAIL                        (-2)
+#define BMX160_E_DEV_NOT_FOUND                   (-3)
+#define BMX160_E_OUT_OF_RANGE                    (-4)
+#define BMX160_E_INVALID_INPUT                   (-5)
+#define BMX160_E_ACCEL_ODR_BW_INVALID            (-6)
+#define BMX160_E_GYRO_ODR_BW_INVALID             (-7)
+#define BMX160_E_LWP_PRE_FLTR_INT_INVALID        (-8)
+#define BMX160_E_LWP_PRE_FLTR_INVALID            (-9)
+#define BMX160_E_MAGN_NOT_FOUND                  (-10)
+#define BMX160_FOC_FAILURE                       (-11)
+#define BMX160_ERR_CHOOSE                        (-12)
 
 /**\name API warning codes */
 #define BMX160_W_GYRO_SELF_TEST_FAIL  (1)
 #define BMX160_W_ACCEl_SELF_TEST_FAIL (2)
 
 /** bmx160 unique chip identifier */
-#define BMX160_CHIP_ID                    (0xD8)
+#define BMX160_CHIP_ID                           (0xD8)
 
 /** Soft reset command */
-#define BMX160_SOFT_RESET_CMD             (0xb6)
-#define BMX160_SOFT_RESET_DELAY_MS        (15)
+#define BMX160_SOFT_RESET_CMD                    (0xb6)
+#define BMX160_SOFT_RESET_DELAY_MS               (15)
 /** Start FOC command */
-#define BMX160_START_FOC_CMD             (0x03)
+#define BMX160_START_FOC_CMD                     (0x03)
 /** NVM backup enabling command */
-#define BMX160_NVM_BACKUP_EN     (0xA0)
+#define BMX160_NVM_BACKUP_EN                     (0xA0)
 
 /* Delay in ms settings */
-#define BMX160_ACCEL_DELAY_MS             (5)
-#define BMX160_GYRO_DELAY_MS              (81)
-#define BMX160_ONE_MS_DELAY               (1)
-#define BMX160_MAGN_COM_DELAY      (10)
-#define BMX160_GYRO_SELF_TEST_DELAY   (20)
-#define BMX160_ACCEL_SELF_TEST_DELAY    (50)
+#define BMX160_ACCEL_DELAY_MS                    (5)
+#define BMX160_GYRO_DELAY_MS                     (81)
+#define BMX160_ONE_MS_DELAY                      (1)
+#define BMX160_MAGN_COM_DELAY                    (10)
+#define BMX160_GYRO_SELF_TEST_DELAY              (20)
+#define BMX160_ACCEL_SELF_TEST_DELAY             (50)
 
 /** Self test configurations */
-#define BMX160_ACCEL_SELF_TEST_CONFIG    (0x2C)
-#define BMX160_ACCEL_SELF_TEST_POSITIVE_EN   (0x0D)
-#define BMX160_ACCEL_SELF_TEST_NEGATIVE_EN   (0x09)
-#define BMX160_ACCEL_SELF_TEST_LIMIT     (8192)
+#define BMX160_ACCEL_SELF_TEST_CONFIG            (0x2C)
+#define BMX160_ACCEL_SELF_TEST_POSITIVE_EN       (0x0D)
+#define BMX160_ACCEL_SELF_TEST_NEGATIVE_EN       (0x09)
+#define BMX160_ACCEL_SELF_TEST_LIMIT             (8192)
 
 /** Power mode settings */
 /* Accel power mode */
-#define BMX160_ACCEL_NORMAL_MODE          (0x11)
-#define BMX160_ACCEL_LOWPOWER_MODE        (0x12)
-#define BMX160_ACCEL_SUSPEND_MODE         (0x10)
+#define BMX160_ACCEL_NORMAL_MODE                 (0x11)
+#define BMX160_ACCEL_LOWPOWER_MODE               (0x12)
+#define BMX160_ACCEL_SUSPEND_MODE                (0x10)
 
 /* Gyro power mode */
-#define BMX160_GYRO_SUSPEND_MODE          (0x14)
-#define BMX160_GYRO_NORMAL_MODE           (0x15)
-#define BMX160_GYRO_FASTSTARTUP_MODE      (0x17)
+#define BMX160_GYRO_SUSPEND_MODE                 (0x14)
+#define BMX160_GYRO_NORMAL_MODE                  (0x15)
+#define BMX160_GYRO_FASTSTARTUP_MODE             (0x17)
 
 /* Magn power mode */
-#define BMX160_MAGN_SUSPEND_MODE    (0x18)
-#define BMX160_MAGN_NORMAL_MODE     (0x19)
-#define BMX160_MAGN_LOWPOWER_MODE   (0x1A)
+#define BMX160_MAGN_SUSPEND_MODE                 (0x18)
+#define BMX160_MAGN_NORMAL_MODE                  (0x19)
+#define BMX160_MAGN_LOWPOWER_MODE                (0x1A)
 
 /** Range settings */
 /* Accel Range */
-#define BMX160_ACCEL_RANGE_2G             (0x03)
-#define BMX160_ACCEL_RANGE_4G             (0x05)
-#define BMX160_ACCEL_RANGE_8G             (0x08)
-#define BMX160_ACCEL_RANGE_16G            (0x0C)
+#define BMX160_ACCEL_RANGE_2G                    (0x03)
+#define BMX160_ACCEL_RANGE_4G                    (0x05)
+#define BMX160_ACCEL_RANGE_8G                    (0x08)
+#define BMX160_ACCEL_RANGE_16G                   (0x0C)
 
 /* Gyro Range */
-#define BMX160_GYRO_RANGE_2000_DPS        (0x00)
-#define BMX160_GYRO_RANGE_1000_DPS        (0x01)
-#define BMX160_GYRO_RANGE_500_DPS         (0x02)
-#define BMX160_GYRO_RANGE_250_DPS         (0x03)
-#define BMX160_GYRO_RANGE_125_DPS         (0x04)
+#define BMX160_GYRO_RANGE_2000_DPS               (0x00)
+#define BMX160_GYRO_RANGE_1000_DPS               (0x01)
+#define BMX160_GYRO_RANGE_500_DPS                (0x02)
+#define BMX160_GYRO_RANGE_250_DPS                (0x03)
+#define BMX160_GYRO_RANGE_125_DPS                (0x04)
 
 /* Macro for mg per LSB at +/- 2g sensitivity (1 LSB = 0.000061035mg) */
 #define BMX160_ACCEL_MG_LSB_2G      (0.000061035F)
@@ -515,10 +515,10 @@ THE SOFTWARE.
 #define BMX160_SPI_WR_MASK                (0x7F)
 
 /* Sensor & time select definition*/
-#define BMX160_MAG_SEL     (0x01)
-#define BMX160_GYRO_SEL     (0x02)
-#define BMX160_ACCEL_SEL      (0x03)
-#define BMX160_TIME_SEL      (0x04)
+#define BMX160_MAG_SEL              (0x01)
+#define BMX160_GYRO_SEL             (0x02)
+#define BMX160_ACCEL_SEL            (0x03)
+#define BMX160_TIME_SEL             (0x04)
 
 /* Sensor select mask*/
 #define BMX160_SEN_SEL_MASK    (0x07)
@@ -530,7 +530,7 @@ THE SOFTWARE.
 #define BMX160_I2C_ADDR                  (0x68)
 
 /* bmx160 secondary IF address */
-#define BMX160_MAGN_BMM150_I2C_ADDR     (0x10)
+#define BMX160_MAGN_BMM150_I2C_ADDR      (0x10)
 
 /** bmx160 Length definitions */
 #define BMX160_ONE                        (1)
@@ -641,7 +641,6 @@ THE SOFTWARE.
  *  @brief This structure holds the information for usage of
  *  FIFO by the user.
  */
-//struct BMX160_fifo_frame {
 struct bmx160FifoFrame {
   /*! Data buffer of user defined length is to be mapped here */
   uint8_t *data;
@@ -652,36 +651,27 @@ struct bmx160FifoFrame {
    */
   uint16_t length;
   /*! FIFO time enable */
-  //uint8_t fifo_time_enable;
   uint8_t fifoTimeEnable;
   /*! Enabling of the FIFO header to stream in header mode */
-  //uint8_t fifo_header_enable;
   uint8_t fifoHeaderEnable;
   /*! Streaming of the Accelerometer, Gyroscope
   sensor data or both in FIFO */
-  //uint8_t fifo_data_enable;
   uint8_t fifoDataEnable;
   /*! Will be equal to length when no more frames are there to parse */
-  //uint16_t accel_byte_start_idx;
   uint16_t accelByteStartIdx;
   /*! Will be equal to length when no more frames are there to parse */
-  //uint16_t gyro_byte_start_idx;
   uint16_t gyroByteStartIdx;
   /*! Will be equal to length when no more frames are there to parse */
-  //uint16_t magn_byte_start_idx;
   uint16_t magnByteStartIdx;
   /*! Value of FIFO sensor time time */
-  //uint32_t sensor_time;
   uint32_t sensorTime;
   /*! Value of Skipped frame counts */
-  //uint8_t skipped_frame_count;
   uint8_t skippedFrameCount;
 };
 
 /*!
  * @brief bmx160 active state of any & sig motion interrupt.
  */
-//enum BMX160_any_sig_motion_active_interrupt_state {
 enum eBmx160AnySigMotionActiveInterruptState {
   /*! Both any & sig motion are disabled */
   //BMX160_BOTH_ANY_SIG_MOTION_DISABLED = -1,

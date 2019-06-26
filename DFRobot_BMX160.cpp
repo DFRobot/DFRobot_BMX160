@@ -1,4 +1,4 @@
-#include"DFRobot_BMX160.h"
+#include "DFRobot_BMX160.h"
 
 DFRobot_BMX160::DFRobot_BMX160()
 {
@@ -165,19 +165,19 @@ void DFRobot_BMX160::setGyroRange(eGyroRange_t bits){
 void DFRobot_BMX160::setAccelRange(eAccelRange_t bits){
     switch (bits){
         case eAccelRange_2G:
-            accelRange = BMX160_ACCEL_MG_LSB_2G * 1000;
+            accelRange = BMX160_ACCEL_MG_LSB_2G;
             break;
         case eAccelRange_4G:
-            accelRange = BMX160_ACCEL_MG_LSB_4G * 1000;
+            accelRange = BMX160_ACCEL_MG_LSB_4G;
             break;
         case eAccelRange_8G:
-            accelRange = BMX160_ACCEL_MG_LSB_8G * 1000;
+            accelRange = BMX160_ACCEL_MG_LSB_8G;
             break;
         case eAccelRange_16G:
-            accelRange = BMX160_ACCEL_MG_LSB_16G * 1000;
+            accelRange = BMX160_ACCEL_MG_LSB_16G;
             break;
         default:
-            accelRange = BMX160_ACCEL_MG_LSB_2G * 1000;
+            accelRange = BMX160_ACCEL_MG_LSB_2G;
             break;
     }
 }

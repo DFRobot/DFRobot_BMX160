@@ -28,7 +28,7 @@ To use this library, first download the library file, paste it into the \Arduino
 
 ## Methods
 
-```C++	
+```C++
 
 #include <DFRobot_BMX160.h>
 
@@ -77,6 +77,7 @@ void getAllData(struct bmx160SensorData *magn, struct bmx160SensorData *gyro, st
  * @brief disabled the the magn, gyro sensor to reduce power consumption
  */
 void setLowPower();
+
 /*
  * @brief enabled the the magn, gyro sensor
  */

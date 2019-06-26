@@ -1,16 +1,16 @@
 #######################################
-# Syntax Coloring DFRobot_BMI160
+# Syntax Coloring DFRobot_BMX160
 #######################################
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
 
-DFRobot_BMI160	KEYWORD1
+DFRobot_BMX160	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
-#######################################	
+#######################################
 
 begin	KEYWORD2
 setGyroRange	KEYWORD2
