@@ -31,6 +31,26 @@ To use this library, first download the library file, paste it into the \Arduino
 ```C++
 
 #include <DFRobot_BMX160.h>
+/*
+ * @brief set gyroscope angular rate range and resolution.
+ */
+typedef enum{
+ eGyroRange_2000DPS,
+ eGyroRange_1000DPS,
+ eGyroRange_500DPS,
+ eGyroRange_250DPS,
+ eGyroRange_125DPS
+}eGyroRange_t;
+
+/*
+ * @brief allow the selection of the accelerometer g-range.
+ */
+@typedef enum{
+ eAccelRange_2G,
+ eAccelRange_4G,
+ eAccelRange_8G,
+ eAccelRange_16G
+}eAccelRange_t;
 
 /*
  * @brief reset bmx160 hardware
@@ -47,23 +67,12 @@ bool begin();
 /*
  * @brief set gyroscope angular rate range and resolution.
  * @param eGyroRange_t bits in 
- * @typedef enum{eGyroRange_2000DPS,
- *               eGyroRange_1000DPS,
- *               eGyroRange_500DPS,
- *               eGyroRange_250DPS,
- *               eGyroRange_125DPS
- *               }eGyroRange_t;
  */
 void setGyroRange(eGyroRange_t bits);
 
 /*
  * @brief allow the selection of the accelerometer g-range.
  * @param eAccelRange_t bits in 
- * @typedef enum{eAccelRange_2G,
- *               eAccelRange_4G,
- *               eAccelRange_8G,
- *               eAccelRange_16G
- *               }eAccelRange_t;
  */
 void setAccelRange(eAccelRange_t bits);
 

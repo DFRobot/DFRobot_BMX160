@@ -1,8 +1,8 @@
  /*!
-  * readData.ino
+  * readAllData.ino
   *
   * Through the example, you can get the sensor data by using getSensorData:
-  * get all data of magn, gyro, accel.
+  * get all data of magnetometer, gyroscope, accelerometer.
   * 
   * With the rotation of the sensor, data changes are visible.
   *
