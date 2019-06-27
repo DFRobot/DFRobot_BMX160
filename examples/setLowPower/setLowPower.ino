@@ -1,5 +1,5 @@
  /*!
-  * readData.ino
+  * file setLowPower.ino
   *
   * Through the example disable or enable the gyroscope and accelerometer sensor.
   * 

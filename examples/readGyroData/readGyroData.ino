@@ -1,5 +1,5 @@
  /*!
-  * readGyroData.ino
+  * file readGyroData.ino
   *
   * Through the example, you can get the sensor data by using getAllData:
   * get gyroscope data of sensor.

@@ -1,5 +1,5 @@
  /*!
-  * readData.ino
+  * file readAccelData.ino
   *
   * Through the example, you can get the sensor data by using getAllData:
   * get accelerometer data of sensor.

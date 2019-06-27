@@ -1,5 +1,5 @@
  /*!
-  * readAllData.ino
+  * file readAllData.ino
   *
   * Through the example, you can get the sensor data by using getSensorData:
   * get all data of magnetometer, gyroscope, accelerometer.

@@ -1,5 +1,5 @@
  /*!
-  * readData.ino
+  * file readMagnData.ino
   *
   * Through the example, you can get the sensor data by using getSensorData:
   * get magnetometer data of sensor.

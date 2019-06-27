@@ -35,21 +35,21 @@ To use this library, first download the library file, paste it into the \Arduino
  * @brief set gyroscope angular rate range and resolution.
  */
 typedef enum{
- eGyroRange_2000DPS,
- eGyroRange_1000DPS,
- eGyroRange_500DPS,
- eGyroRange_250DPS,
- eGyroRange_125DPS
+ eGyroRange_2000DPS, /*Gyroscope sensitivity at 2000dps*/
+ eGyroRange_1000DPS, /*Gyroscope sensitivity at 1000dps*/
+ eGyroRange_500DPS,  /*Gyroscope sensitivity at 500dps*/
+ eGyroRange_250DPS,  /*Gyroscope sensitivity at 250dps*/
+ eGyroRange_125DPS   /*Gyroscope sensitivity at 125dps*/
 }eGyroRange_t;
 
 /*
  * @brief allow the selection of the accelerometer g-range.
  */
 typedef enum{
- eAccelRange_2G,
- eAccelRange_4G,
- eAccelRange_8G,
- eAccelRange_16G
+ eAccelRange_2G,  /* Macro for mg per LSB at +/- 2g sensitivity (1 LSB = 0.000061035mg) */
+ eAccelRange_4G,  /* Macro for mg per LSB at +/- 4g sensitivity (1 LSB = 0.000122070mg) */
+ eAccelRange_8G,  /* Macro for mg per LSB at +/- 8g sensitivity (1 LSB = 0.000244141mg) */
+ eAccelRange_16G  /* Macro for mg per LSB at +/- 16g sensitivity (1 LSB = 0.000488281mg) */
 }eAccelRange_t;
 
 /*
@@ -112,7 +112,7 @@ ESP32        |      √       |              |             |
 
 ## Credits
 
-Written by(yufeng.luo@dfrobot.com), 2017. (Welcome to our [website](https://www.dfrobot.com/))
+Written by(yufeng.luo@dfrobot.com), 2019. (Welcome to our [website](https://www.dfrobot.com/))
 
 
 
