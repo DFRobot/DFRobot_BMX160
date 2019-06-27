@@ -45,7 +45,7 @@ typedef enum{
 /*
  * @brief allow the selection of the accelerometer g-range.
  */
-@typedef enum{
+typedef enum{
  eAccelRange_2G,
  eAccelRange_4G,
  eAccelRange_8G,
@@ -99,6 +99,9 @@ void wakeUp();
 MCU                | Work Well    | Work Wrong   | Untested    | Remarks
 ------------------ | :----------: | :----------: | :---------: | -----
 Arduino uno        |      √       |              |             | 
+Mega2560        |      √       |              |             | 
+Leonardo        |      √       |              |             | 
+ESP32        |      √       |              |             | 
 
 
 ## History
