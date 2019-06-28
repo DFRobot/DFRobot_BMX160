@@ -105,14 +105,17 @@ void DFRobot_BMX160::wakeUp(){
     delay(100);
 }
 
-int8_t DFRobot_BMX160::softReset()
+bool DFRobot_BMX160::softReset()
 {
   int8_t rslt=BMX160_OK;
   if (Obmx160 == NULL){
     rslt = BMX160_E_NULL_PTR;
   }  
   rslt = softReset(Obmx160);
-  return rslt;
+  if (rslt == 0)
+    return true;
+  else
+    return false;
 }
 
 int8_t DFRobot_BMX160::softReset(struct bmx160Dev *dev)

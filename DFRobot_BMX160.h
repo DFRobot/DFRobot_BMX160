@@ -1223,7 +1223,7 @@ class DFRobot_BMX160{
      * @brief reset bmx160 hardware
      * @return BMX160_OK(0) means success
      */
-    int8_t softReset();
+    bool softReset();
     void setLowPower();
     void wakeUp();
     
