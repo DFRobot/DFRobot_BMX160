@@ -54,9 +54,9 @@ typedef enum{
 
 /*
  * @brief reset bmx160 hardware
- * @return BMX160_OK(0) means success
+ * @return true means success
  */
-int8_t softReset();
+bool softReset();
 
 /*
  * @brief set the i2c addr and init the i2c.
