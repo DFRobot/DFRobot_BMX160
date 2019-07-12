@@ -20,7 +20,7 @@ Provide an Arduino library to control the bmx160 to get acell, gyro and step cou
 
 ## Summary
 
-Provide an Arduino library to control the bmx160 to get acell, gyro and step counter, via I2C communication.
+Provide an Arduino library to control the bmx160 to get magnetometer accelerometer, gyroscope and step counter, via I2C communication.
 
 ## Installation
 
