@@ -176,22 +176,22 @@ void DFRobot_BMX160::setMagnConf()
 void DFRobot_BMX160::setGyroRange(eGyroRange_t bits){
     switch (bits){
         case eGyroRange_125DPS:
-            gyroRange = BMX160_GYRO_SENSITIVITY_125DPS * 1000;
+            gyroRange = BMX160_GYRO_SENSITIVITY_125DPS;
             break;
         case eGyroRange_250DPS:
-            gyroRange = BMX160_GYRO_SENSITIVITY_250DPS * 1000;
+            gyroRange = BMX160_GYRO_SENSITIVITY_250DPS;
             break;
         case eGyroRange_500DPS:
-            gyroRange = BMX160_GYRO_SENSITIVITY_500DPS * 1000;
+            gyroRange = BMX160_GYRO_SENSITIVITY_500DPS;
             break;
         case eGyroRange_1000DPS:
-            gyroRange = BMX160_GYRO_SENSITIVITY_1000DPS * 1000;
+            gyroRange = BMX160_GYRO_SENSITIVITY_1000DPS;
             break;
         case eGyroRange_2000DPS:
-            gyroRange = BMX160_GYRO_SENSITIVITY_2000DPS * 1000;
+            gyroRange = BMX160_GYRO_SENSITIVITY_2000DPS;
             break;
         default:
-            gyroRange = BMX160_GYRO_SENSITIVITY_250DPS * 1000;
+            gyroRange = BMX160_GYRO_SENSITIVITY_250DPS;
             break;
     }
 }
@@ -199,19 +199,19 @@ void DFRobot_BMX160::setGyroRange(eGyroRange_t bits){
 void DFRobot_BMX160::setAccelRange(eAccelRange_t bits){
     switch (bits){
         case eAccelRange_2G:
-            accelRange = BMX160_ACCEL_MG_LSB_2G;
+            accelRange = BMX160_ACCEL_MG_LSB_2G * 10;
             break;
         case eAccelRange_4G:
-            accelRange = BMX160_ACCEL_MG_LSB_4G;
+            accelRange = BMX160_ACCEL_MG_LSB_4G * 10;
             break;
         case eAccelRange_8G:
-            accelRange = BMX160_ACCEL_MG_LSB_8G;
+            accelRange = BMX160_ACCEL_MG_LSB_8G * 10;
             break;
         case eAccelRange_16G:
-            accelRange = BMX160_ACCEL_MG_LSB_16G;
+            accelRange = BMX160_ACCEL_MG_LSB_16G * 10;
             break;
         default:
-            accelRange = BMX160_ACCEL_MG_LSB_2G;
+            accelRange = BMX160_ACCEL_MG_LSB_2G * 10;
             break;
     }
 }
@@ -221,29 +221,30 @@ void DFRobot_BMX160::getAllData(struct bmx160SensorData *magn, struct bmx160Sens
     uint8_t data[23] = {0};
     // put your main code here, to run repeatedly:
     readReg(BMX160_MAG_DATA_ADDR, data, 23);
-    magn->x = (int16_t) ((data[1] << 8) | data[0]);
-    magn->y = (int16_t) ((data[3] << 8) | data[2]);
-    magn->z = (int16_t) ((data[5] << 8) | data[4]);
-    
-    gyro->x = (int16_t) ((data[9] << 8) | data[8]);
-    gyro->y = (int16_t) ((data[11] << 8) | data[10]);
-    gyro->z = (int16_t) ((data[13] << 8) | data[12]);
-    
-    accel->x = (int16_t) ((data[15] << 8) | data[14]);
-    accel->y = (int16_t) ((data[17] << 8) | data[16]);
-    accel->z = (int16_t) ((data[19] << 8) | data[18]);
-    
-    magn->x *= BMX160_MAGN_UT_LSB;
-    magn->y *= BMX160_MAGN_UT_LSB;
-    magn->z *= BMX160_MAGN_UT_LSB;
-    
-    gyro->x *= gyroRange;
-    gyro->y *= gyroRange;
-    gyro->z *= gyroRange;
-    
-    accel->x *= accelRange * 9.8;
-    accel->y *= accelRange * 9.8;
-    accel->z *= accelRange * 9.8;
+    if(magn){
+        magn->x = (int16_t) ((data[1] << 8) | data[0]);
+        magn->y = (int16_t) ((data[3] << 8) | data[2]);
+        magn->z = (int16_t) ((data[5] << 8) | data[4]);
+        magn->x *= BMX160_MAGN_UT_LSB;
+        magn->y *= BMX160_MAGN_UT_LSB;
+        magn->z *= BMX160_MAGN_UT_LSB;
+    }
+    if(gyro){
+        gyro->x = (int16_t) ((data[9] << 8) | data[8]);
+        gyro->y = (int16_t) ((data[11] << 8) | data[10]);
+        gyro->z = (int16_t) ((data[13] << 8) | data[12]);
+        gyro->x *= gyroRange;
+        gyro->y *= gyroRange;
+        gyro->z *= gyroRange;
+    }
+    if(accel){
+        accel->x = (int16_t) ((data[15] << 8) | data[14]);
+        accel->y = (int16_t) ((data[17] << 8) | data[16]);
+        accel->z = (int16_t) ((data[19] << 8) | data[18]);
+        accel->x *= accelRange;
+        accel->y *= accelRange;
+        accel->z *= accelRange;
+    }
 }
 
 int8_t DFRobot_BMX160::readBmxReg(uint8_t reg)

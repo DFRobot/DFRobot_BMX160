@@ -1230,7 +1230,7 @@ class DFRobot_BMX160{
   private:
     int8_t softReset(struct bmx160Dev *dev);
     void   defaultParamSettg(struct bmx160Dev *dev);
-    float accelRange = BMX160_ACCEL_MG_LSB_2G;
+    float accelRange = BMX160_ACCEL_MG_LSB_2G * 10;
     float gyroRange = BMX160_GYRO_SENSITIVITY_250DPS;
     uint8_t _addr = 0x68;
     void setMagnConf();
