@@ -252,7 +252,7 @@ int8_t DFRobot_BMX160::readBmxReg(uint8_t reg)
     uint8_t buf[1] = {0};
     
     readReg(reg, buf, sizeof(buf));
-    return buf[1];
+    return buf[0];
 }
 
 void DFRobot_BMX160::writeBmxReg(uint8_t reg, uint8_t value)
