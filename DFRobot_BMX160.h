@@ -1231,7 +1231,7 @@ class DFRobot_BMX160{
      * @brief read bmx160 register
      * @return value in that register
      */
-    int8_t readBmxReg(uint8_t reg);
+    uint8_t readBmxReg(uint8_t reg);
 
     /*
      * @brief write bmx160 register
@@ -1239,7 +1239,7 @@ class DFRobot_BMX160{
     void writeBmxReg(uint8_t reg, uint8_t value);
 
   private:
-    int8_t softReset(struct bmx160Dev *dev);
+    uint8_t softReset(struct bmx160Dev *dev);
     void   defaultParamSettg(struct bmx160Dev *dev);
     float accelRange = BMX160_ACCEL_MG_LSB_2G * 10;
     float gyroRange = BMX160_GYRO_SENSITIVITY_250DPS;

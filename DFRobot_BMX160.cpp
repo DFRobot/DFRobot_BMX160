@@ -107,7 +107,7 @@ void DFRobot_BMX160::wakeUp(){
 
 bool DFRobot_BMX160::softReset()
 {
-  int8_t rslt=BMX160_OK;
+  uint8_t rslt=BMX160_OK;
   if (Obmx160 == NULL){
     rslt = BMX160_E_NULL_PTR;
   }  
@@ -118,9 +118,9 @@ bool DFRobot_BMX160::softReset()
     return false;
 }
 
-int8_t DFRobot_BMX160::softReset(struct bmx160Dev *dev)
+uint8_t DFRobot_BMX160::softReset(struct bmx160Dev *dev)
 {
-  int8_t rslt=BMX160_OK;
+  uint8_t rslt=BMX160_OK;
   uint8_t data = BMX160_SOFT_RESET_CMD;
   if (dev==NULL){
     rslt = BMX160_E_NULL_PTR;
@@ -247,7 +247,7 @@ void DFRobot_BMX160::getAllData(struct bmx160SensorData *magn, struct bmx160Sens
     }
 }
 
-int8_t DFRobot_BMX160::readBmxReg(uint8_t reg)
+uint8_t DFRobot_BMX160::readBmxReg(uint8_t reg)
 {
     uint8_t buf[1] = {0};
     
