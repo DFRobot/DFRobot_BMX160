@@ -1,19 +1,18 @@
-'''
-file read_all_data.py
-
-Through the example, you can get the sensor data by using getAllData:
-get accelerometer data of sensor.
-
-With the rotation of the sensor, data changes are visible.
-
-Copyright   [DFRobot](http://www.dfrobot.com), 2016
-Copyright   GNU Lesser General Public License
-
-version  V1.0
-date  2019-7-9
+'''!
+  @file read_accel_data.py
+  @brief Through the example, you can get the sensor data by using getAllData:
+  @n     get accelerometer data of sensor.
+  @n     With the rotation of the sensor, data changes are visible.
+  @copyright	Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
+  @license     The MIT License (MIT)
+  @author [luoyufeng] (yufeng.luo@dfrobot.com)
+  @maintainer [Fary](feng.yang@dfrobot.com)
+  @version  V1.0
+  @date  2021-10-20
+  @url https://github.com/DFRobot/DFRobot_BMX160
 '''
 import sys
-sys.path.append('../')
+sys.path.append('../../')
 import time
 from DFRobot_BMX160 import BMX160
 

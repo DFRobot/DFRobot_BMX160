@@ -1,18 +1,16 @@
- /*!
-  * file readMagnData.ino
-  *
-  * Through the example, you can get the sensor data by using getSensorData:
-  * get magnetometer data of sensor.
-  * 
-  * With the rotation of the sensor, data changes are visible.
-  *
-  * Copyright   [DFRobot](http://www.dfrobot.com), 2016
-  * Copyright   GNU Lesser General Public License
-  *
-  * version  V0.1
-  * date  2019-6-25
-  */
-
+/*!
+ * @file readMagnData.ino
+ * @brief Through the example, you can get the sensor data by using getSensorData:
+ * @n     get magnetometer data of sensor.
+ * @n     With the rotation of the sensor, data changes are visible.
+ * @copyright	Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
+ * @license     The MIT License (MIT)
+ * @author [luoyufeng] (yufeng.luo@dfrobot.com)
+ * @maintainer [Fary](feng.yang@dfrobot.com)
+ * @version  V1.0
+ * @date  2021-10-20
+ * @url https://github.com/DFRobot/DFRobot_BMX160
+ */
 #include <DFRobot_BMX160.h>
 
 DFRobot_BMX160 bmx160;
@@ -29,7 +27,7 @@ void setup(){
 }
 
 void loop(){
-  bmx160SensorData Omagn;
+  sBmx160SensorData_t Omagn;
 
   /* Get a new sensor event */
   bmx160.getAllData(&Omagn, NULL, NULL);

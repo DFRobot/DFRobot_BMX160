@@ -1,42 +1,23 @@
-/*
-===============================================
-bmx160 magnetometer/accelerometer/gyroscope library for Intel(R) Curie(TM) devices.
-Copyright (c) 2015 Intel Corporation.  All rights reserved.
-
-Based on MPU6050 Arduino library provided by Jeff Rowberg as part of his
-excellent I2Cdev device library: https://github.com/jrowberg/i2cdevlib
-
-===============================================
-I2Cdev device library code is placed under the MIT license
-Copyright (c) 2012 Jeff Rowberg
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-===============================================
-*/
+/*!
+ * @file DFRobot_BMX160.cpp
+ * @brief define DFRobot_BMX160 class infrastructure, the implementation of basic methods
+ * @copyright	Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
+ * @license     The MIT License (MIT)
+ * @author [luoyufeng] (yufeng.luo@dfrobot.com)
+ * @maintainer [Fary](feng.yang@dfrobot.com)
+ * @version  V1.0
+ * @date  2021-10-20
+ * @url https://github.com/DFRobot/DFRobot_BMX160
+ */
 #include "DFRobot_BMX160.h"
 
-DFRobot_BMX160::DFRobot_BMX160()
+DFRobot_BMX160::DFRobot_BMX160(TwoWire *pWire)
 {
-  Obmx160 = (struct bmx160Dev *)malloc(sizeof(struct bmx160Dev));
-  Oaccel = (struct bmx160SensorData*)malloc(sizeof(struct bmx160SensorData));
-  Ogyro = (struct bmx160SensorData*)malloc(sizeof(struct bmx160SensorData));
-  Omagn = (struct bmx160SensorData*)malloc(sizeof(struct bmx160SensorData));
+  _pWire = pWire;
+  Obmx160 = (sBmx160Dev_t *)malloc(sizeof(sBmx160Dev_t));
+  Oaccel = ( sBmx160SensorData_t*)malloc(sizeof( sBmx160SensorData_t));
+  Ogyro = ( sBmx160SensorData_t*)malloc(sizeof( sBmx160SensorData_t));
+  Omagn = ( sBmx160SensorData_t*)malloc(sizeof( sBmx160SensorData_t));
 }
 
 const uint8_t int_mask_lookup_table[13] = {
@@ -57,7 +38,7 @@ const uint8_t int_mask_lookup_table[13] = {
 
 bool DFRobot_BMX160::begin()
 {
-    Wire.begin();
+    _pWire->begin();
     if (scan() == true){
         softReset();
         writeBmxReg(BMX160_COMMAND_REG_ADDR, 0x11);
@@ -111,14 +92,14 @@ bool DFRobot_BMX160::softReset()
   if (Obmx160 == NULL){
     rslt = BMX160_E_NULL_PTR;
   }  
-  rslt = softReset(Obmx160);
+  rslt = _softReset(Obmx160);
   if (rslt == 0)
     return true;
   else
     return false;
 }
 
-int8_t DFRobot_BMX160::softReset(struct bmx160Dev *dev)
+int8_t DFRobot_BMX160:: _softReset(sBmx160Dev_t *dev)
 {
   int8_t rslt=BMX160_OK;
   uint8_t data = BMX160_SOFT_RESET_CMD;
@@ -133,7 +114,7 @@ int8_t DFRobot_BMX160::softReset(struct bmx160Dev *dev)
   return rslt;
 }
 
-void DFRobot_BMX160::defaultParamSettg(struct bmx160Dev *dev)
+void DFRobot_BMX160::defaultParamSettg(sBmx160Dev_t *dev)
 {
   // Initializing accel and gyro params with
   dev->gyroCfg.bw = BMX160_GYRO_BW_NORMAL_MODE;
@@ -216,7 +197,7 @@ void DFRobot_BMX160::setAccelRange(eAccelRange_t bits){
     }
 }
 
-void DFRobot_BMX160::getAllData(struct bmx160SensorData *magn, struct bmx160SensorData *gyro, struct bmx160SensorData *accel){
+void DFRobot_BMX160::getAllData(sBmx160SensorData_t *magn, sBmx160SensorData_t *gyro, sBmx160SensorData_t *accel){
 
     uint8_t data[23] = {0};
     // put your main code here, to run repeatedly:
@@ -263,32 +244,30 @@ void DFRobot_BMX160::writeBmxReg(uint8_t reg, uint8_t value)
 
 void DFRobot_BMX160::writeReg(uint8_t reg, uint8_t *pBuf, uint16_t len)
 {
-    Wire.begin();
-    Wire.beginTransmission(_addr);
-    Wire.write(reg);
+   _pWire->beginTransmission(_addr);
+   _pWire->write(reg);
     for(uint16_t i = 0; i < len; i ++)
-        Wire.write(pBuf[i]);
-    Wire.endTransmission();
+       _pWire->write(pBuf[i]);
+   _pWire->endTransmission();
 }
 
 void DFRobot_BMX160::readReg(uint8_t reg, uint8_t *pBuf, uint16_t len)
 {
-    Wire.begin();
-    Wire.beginTransmission(_addr);
-    Wire.write(reg);
-    if(Wire.endTransmission() != 0)
+   _pWire->beginTransmission(_addr);
+   _pWire->write(reg);
+    if(_pWire->endTransmission() != 0)
         return;
-    Wire.requestFrom(_addr, (uint8_t) len);
+   _pWire->requestFrom(_addr, (uint8_t) len);
     for(uint16_t i = 0; i < len; i ++) {
-        pBuf[i] = Wire.read();
+        pBuf[i] =_pWire->read();
     }
-    Wire.endTransmission();
+   _pWire->endTransmission();
 }
 
 bool DFRobot_BMX160::scan()
 {
-    Wire.beginTransmission(_addr);
-    if (Wire.endTransmission() == 0){
+   _pWire->beginTransmission(_addr);
+    if (_pWire->endTransmission() == 0){
         return true;
     }
     return false;

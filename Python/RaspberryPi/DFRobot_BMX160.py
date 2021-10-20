@@ -1,19 +1,14 @@
-'''
- MIT License
- Copyright (C) <2019> <@DFRobot luoyufeng>
- Permission is hereby granted, free of charge, to any person obtaining a copy of this
- software and associated documentation files (the "Software"), to deal in the Software
- without restriction, including without limitation the rights to use, copy, modify,
- merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
- permit persons to whom the Software is furnished to do so.
- The above copyright notice and this permission notice shall be included in all copies or
- substantial portions of the Software.
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
- INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
- PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
- FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
- ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-'''
+'''!
+  @file DFRobot_BMX160.py
+  @brief define DFRobot_BMX160 class infrastructure, the implementation of basic methods
+  @copyright	Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
+  @license     The MIT License (MIT)
+  @author [luoyufeng] (yufeng.luo@dfrobot.com)
+  @maintainer [Fary](feng.yang@dfrobot.com)
+  @version  V1.0
+  @date  2021-10-20
+  @url https://github.com/DFRobot/DFRobot_BMX160
+ '''
 import sys
 sys.path.append('../')
 import smbus
@@ -81,16 +76,16 @@ class BMX160:
     
     BMX160_SOFT_RESET_CMD           = (0xb6)
     BMX160_MAGN_UT_LSB              = (0.3)
-    BMX160_ACCEL_MG_LSB_2G          = (0.000061035)
-    BMX160_ACCEL_MG_LSB_4G          = (0.000122070)
-    BMX160_ACCEL_MG_LSB_8G          = (0.000244141)
-    BMX160_ACCEL_MG_LSB_16G         = (0.000488281)
+    _BMX160_ACCEL_MG_LSB_2G          = (0.000061035)
+    _BMX160_ACCEL_MG_LSB_4G          = (0.000122070)
+    _BMX160_ACCEL_MG_LSB_8G          = (0.000244141)
+    _BMX160_ACCEL_MG_LSB_16G         = (0.000488281)
     
-    BMX160_GYRO_SENSITIVITY_125DPS  = (0.0038110)
-    BMX160_GYRO_SENSITIVITY_250DPS  = (0.0076220)
-    BMX160_GYRO_SENSITIVITY_500DPS  = (0.0152439)
-    BMX160_GYRO_SENSITIVITY_1000DPS = (0.0304878)
-    BMX160_GYRO_SENSITIVITY_2000DPS = (0.0609756)
+    _BMX160_GYRO_SENSITIVITY_125DPS  = (0.0038110)
+    _BMX160_GYRO_SENSITIVITY_250DPS  = (0.0076220)
+    _BMX160_GYRO_SENSITIVITY_500DPS  = (0.0152439)
+    _BMX160_GYRO_SENSITIVITY_1000DPS = (0.0304878)
+    _BMX160_GYRO_SENSITIVITY_2000DPS = (0.0609756)
     
     GyroRange_125DPS                 = (0x00)
     GyroRange_250DPS                 = (0x01)
@@ -103,8 +98,8 @@ class BMX160:
     AccelRange_8G                    = (0x02)
     AccelRange_16G                   = (0x03)
     
-    accelRange = BMX160_ACCEL_MG_LSB_2G;
-    gyroRange = BMX160_GYRO_SENSITIVITY_250DPS;
+    accelRange = _BMX160_ACCEL_MG_LSB_2G
+    gyroRange = _BMX160_GYRO_SENSITIVITY_250DPS
     
     def __init__(self, bus):
         self.i2cbus = smbus.SMBus(bus)
@@ -112,32 +107,44 @@ class BMX160:
         time.sleep(0.16)
     
     def begin(self):
+        '''!
+          @brief initialization the i2c.
+          @return returns the initialization status
+          @retval True Initialization succeeded
+          @retval False Initialization  failed
+        '''
         if not self.scan():
             return False
         else:
-            self.soft_reset();
-            self.write_bmx_reg(self._BMX160_COMMAND_REG_ADDR, 0x11);
-            time.sleep(0.05);
-            self.write_bmx_reg(self._BMX160_COMMAND_REG_ADDR, 0x15);
-            time.sleep(0.1);
-            self.write_bmx_reg(self._BMX160_COMMAND_REG_ADDR, 0x19);
-            time.sleep(0.01);
-            self.set_magn_conf();
+            self.soft_reset()
+            self.write_bmx_reg(self._BMX160_COMMAND_REG_ADDR, 0x11)
+            time.sleep(0.05)
+            self.write_bmx_reg(self._BMX160_COMMAND_REG_ADDR, 0x15)
+            time.sleep(0.1)
+            self.write_bmx_reg(self._BMX160_COMMAND_REG_ADDR, 0x19)
+            time.sleep(0.01)
+            self.set_magn_conf()
             return True
 
     def set_low_power(self):
-        self.soft_reset();
-        time.sleep(0.1);
-        self.set_magn_conf();
-        time.sleep(0.1);
-        self.write_bmx_reg(self._BMX160_COMMAND_REG_ADDR, 0x12);
-        time.sleep(0.1);
-        self.write_bmx_reg(self._BMX160_COMMAND_REG_ADDR, 0x17);
-        time.sleep(0.1);
-        self.write_bmx_reg(self._BMX160_COMMAND_REG_ADDR, 0x1B);
-        time.sleep(0.1);
+        '''!
+          @brief disabled the the magn, gyro sensor to reduce power consumption
+        '''
+        self.soft_reset()
+        time.sleep(0.1)
+        self.set_magn_conf()
+        time.sleep(0.1)
+        self.write_bmx_reg(self._BMX160_COMMAND_REG_ADDR, 0x12)
+        time.sleep(0.1)
+        self.write_bmx_reg(self._BMX160_COMMAND_REG_ADDR, 0x17)
+        time.sleep(0.1)
+        self.write_bmx_reg(self._BMX160_COMMAND_REG_ADDR, 0x1B)
+        time.sleep(0.1)
 
     def wake_up(self):
+        '''!
+          @brief enabled the the magn, gyro sensor
+        '''
         self.soft_reset()
         time.sleep(0.1)
         self.set_magn_conf()
@@ -150,6 +157,12 @@ class BMX160:
         time.sleep(0.1)
 
     def soft_reset(self):
+        '''!
+          @brief reset bmx160 hardware
+          @return returns the reset status
+          @retval True reset succeeded
+          @retval Fasle reset  failed
+        '''
         data = self.BMX160_SOFT_RESET_CMD
         self.write_bmx_reg(self._BMX160_COMMAND_REG_ADDR, data)
         time.sleep(0.015)
@@ -157,6 +170,9 @@ class BMX160:
         return True
 
     def set_magn_conf(self):
+        '''!
+          @brief  set magnetometer Config
+        '''
         self.write_bmx_reg(self._BMX160_MAGN_IF_0_ADDR, 0x80)
         time.sleep(0.05)
         self.write_bmx_reg(self._BMX160_MAGN_IF_3_ADDR, 0x01)
@@ -174,6 +190,15 @@ class BMX160:
         time.sleep(0.05)
 
     def set_gyro_range(self, bits):
+        '''!
+          @brief set gyroscope angular rate range and resolution.
+          @param bits 
+          @n       GyroRange_125DPS      Gyroscope sensitivity at 125dps
+          @n       GyroRange_250DPS      Gyroscope sensitivity at 250dps
+          @n       GyroRange_500DPS      Gyroscope sensitivity at 500dps
+          @n       GyroRange_1000DPS     Gyroscope sensitivity at 1000dps
+          @n       GyroRange_2000DPS     Gyroscope sensitivity at 2000dps
+        '''
         if bits == 0:
             self.gyroRange = self._BMX160_GYRO_SENSITIVITY_125DPS
         elif bits == 1:
@@ -188,6 +213,14 @@ class BMX160:
             self.gyroRange = self._BMX160_GYRO_SENSITIVITY_250DPS
 
     def set_accel_range(self, bits):
+        '''!
+          @brief allow the selection of the accelerometer g-range.
+          @param bits 
+          @n       AccelRange_2G        Macro for mg per LSB at +/- 2g sensitivity (1 LSB = 0.000061035mg) 
+          @n       AccelRange_4G        Macro for mg per LSB at +/- 4g sensitivity (1 LSB = 0.000122070mg) 
+          @n       AccelRange_8G        Macro for mg per LSB at +/- 8g sensitivity (1 LSB = 0.000244141mg) 
+          @n       AccelRange_16G       Macro for mg per LSB at +/- 16g sensitivity (1 LSB = 0.000488281mg)
+        '''
         if bits == 0:
             self.accelRange = self._BMX160_ACCEL_MG_LSB_2G
         elif bits == 1:
@@ -200,7 +233,10 @@ class BMX160:
             self.accelRange = self._BMX160_ACCEL_MG_LSB_2G
 
     def get_all_data(self):
-
+        '''!
+          @brief get the magn, gyro and accel data 
+          @return all data
+        '''
         data = self.read_bmx_reg(self._BMX160_MAG_DATA_ADDR)
         if (data[1] & 0x80):
             magnx = - 0x10000 + ((data[1] << 8) | (data[0]))
@@ -265,12 +301,29 @@ class BMX160:
         return out_put
 
     def write_bmx_reg(self, register, value):
+        '''!
+          @brief Write data to the BMX register
+          @param register register
+          @param value  Data written to the BMX register
+          @return return the actually written length
+        '''
         self.i2cbus.write_byte_data(self.i2c_addr, register, value)
 
     def read_bmx_reg(self, register):
+        '''!
+          @brief Read BMX register data
+          @param register register
+          @return data
+        '''
         return self.i2cbus.read_i2c_block_data(self.i2c_addr, register)
 
     def scan(self):
+        '''!
+          @brief  iic scan function
+          @return scan result
+          @retval True sensor exist
+          @retval False There is no sensor
+        '''
         try:
             self.i2cbus.read_byte(self.i2c_addr)
             return True
