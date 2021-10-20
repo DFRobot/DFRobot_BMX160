@@ -9,7 +9,7 @@
  * @date  2021-10-20
  * @url https://github.com/DFRobot/DFRobot_BMX160
  */
-#include<arduino.h>
+#include<Arduino.h>
 #include<Wire.h>
 #include<SPI.h>
 
@@ -686,9 +686,9 @@ typedef struct {
  * @brief bmx160 sensor data structure which comprises of accel data
  */
 typedef struct {
-  int16_t x;           /**< X-axis sensor data */
-  int16_t y;           /**< Y-axis sensor data */
-  int16_t z;           /**< Z-axis sensor data */
+  float x;           /**< X-axis sensor data */
+  float y;           /**< Y-axis sensor data */
+  float z;           /**< Z-axis sensor data */
   uint32_t sensortime; /**< sensor time */
 }sBmx160SensorData_t;
 
@@ -1096,14 +1096,6 @@ class DFRobot_BMX160{
     void writeReg(uint8_t reg, uint8_t *pBuf, uint16_t len);
 
     /**
-     * @fn readBmxReg
-     * @brief Read BMX register data
-     * @param reg register
-     * @return data
-     */
-    int8_t readBmxReg(uint8_t reg);
-
-    /**
      * @fn writeBmxReg
      * @brief Write data to the BMX register
      * @param reg register
@@ -1127,7 +1119,7 @@ class DFRobot_BMX160{
      */
     void setMagnConf();
 
-    float accelRange = BMX160_ACCEL_MG_LSB_2G * 10;
+    float accelRange = BMX160_ACCEL_MG_LSB_2G * 9.8;
     float gyroRange = BMX160_GYRO_SENSITIVITY_250DPS;
     uint8_t _addr = 0x68;
     
