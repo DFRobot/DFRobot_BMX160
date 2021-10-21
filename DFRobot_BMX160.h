@@ -984,7 +984,7 @@ class DFRobot_BMX160{
      * @brief set the i2c addr and init the i2c.
      * @return returns the initialization status
      * @retval true Initialization succeeded
-     * @retval fasle Initialization  failed
+     * @retval false Initialization  failed
      */
     bool begin();
 
@@ -1025,7 +1025,7 @@ class DFRobot_BMX160{
      * @brief reset bmx160 hardware
      * @return returns the reset status
      * @retval true reset succeeded
-     * @retval fasle reset  failed
+     * @retval false reset  failed
      */
     bool softReset();
 
@@ -1092,7 +1092,7 @@ class DFRobot_BMX160{
      * @brief  iic scan function
      * @return scan result
      * @retval true sensor exist
-     * @retval fasle There is no sensor
+     * @retval false There is no sensor
      */
     bool scan();
 
