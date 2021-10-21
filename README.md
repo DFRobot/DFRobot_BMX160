@@ -39,7 +39,7 @@ There are two ways to use the library:
      * @brief set the i2c addr and init the i2c.
      * @return returns the initialization status
      * @retval true Initialization succeeded
-     * @retval fasle Initialization  failed
+     * @retval false Initialization  failed
      */
     bool begin();
 
@@ -80,7 +80,7 @@ There are two ways to use the library:
      * @brief reset bmx160 hardware
      * @return returns the reset status
      * @retval true reset succeeded
-     * @retval fasle reset  failed
+     * @retval false reset  failed
      */
     bool softReset();
 
