@@ -161,7 +161,7 @@ class BMX160:
           @brief reset bmx160 hardware
           @return returns the reset status
           @retval True reset succeeded
-          @retval Fasle reset  failed
+          @retval False reset  failed
         '''
         data = self.BMX160_SOFT_RESET_CMD
         self.write_bmx_reg(self._BMX160_COMMAND_REG_ADDR, data)
