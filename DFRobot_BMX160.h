@@ -308,25 +308,17 @@
 #define BMX160_GYRO_RANGE_250_DPS                0x03
 #define BMX160_GYRO_RANGE_125_DPS                0x04
 
-/* Macro for mg per LSB at +/- 2g sensitivity (1 LSB = 0.000061035mg) */
-#define BMX160_ACCEL_MG_LSB_2G      0.000061035F
-/* Macro for mg per LSB at +/- 4g sensitivity (1 LSB = 0.000122070mg) */
-#define BMX160_ACCEL_MG_LSB_4G      0.000122070F
-/* Macro for mg per LSB at +/- 8g sensitivity (1 LSB = 0.000244141mg) */
-#define BMX160_ACCEL_MG_LSB_8G      0.000244141F
-/* Macro for mg per LSB at +/- 16g sensitivity (1 LSB = 0.000488281mg) */
-#define BMX160_ACCEL_MG_LSB_16G     0.000488281F
 
-/* Gyroscope sensitivity at 125dps */
-#define BMX160_GYRO_SENSITIVITY_125DPS  0.0038110F
-/* Gyroscope sensitivity at 250dps */
-#define BMX160_GYRO_SENSITIVITY_250DPS  0.0076220F
-/* Gyroscope sensitivity at 500dps */
-#define BMX160_GYRO_SENSITIVITY_500DPS  0.0152439F
-/* Gyroscope sensitivity at 1000dps */
-#define BMX160_GYRO_SENSITIVITY_1000DPS 0.0304878F
-/* Gyroscope sensitivity at 2000dps */
-#define BMX160_GYRO_SENSITIVITY_2000DPS 0.0609756F
+#define BMX160_ACCEL_MG_LSB_2G      0.000061035F   ///< Macro for mg per LSB at +/- 2g sensitivity (1 LSB = 0.000061035mg) */
+#define BMX160_ACCEL_MG_LSB_4G      0.000122070F   ///< Macro for mg per LSB at +/- 4g sensitivity (1 LSB = 0.000122070mg) */
+#define BMX160_ACCEL_MG_LSB_8G      0.000244141F   ///< Macro for mg per LSB at +/- 8g sensitivity (1 LSB = 0.000244141mg) */
+#define BMX160_ACCEL_MG_LSB_16G     0.000488281F   ///< Macro for mg per LSB at +/- 16g sensitivity (1 LSB = 0.000488281mg) */
+
+#define BMX160_GYRO_SENSITIVITY_125DPS  0.0038110F ///< Gyroscope sensitivity at 125dps */
+#define BMX160_GYRO_SENSITIVITY_250DPS  0.0076220F ///< Gyroscope sensitivity at 250dps */
+#define BMX160_GYRO_SENSITIVITY_500DPS  0.0152439F ///< Gyroscope sensitivity at 500dps */
+#define BMX160_GYRO_SENSITIVITY_1000DPS 0.0304878F ///< Gyroscope sensitivity at 1000dps */
+#define BMX160_GYRO_SENSITIVITY_2000DPS 0.0609756F ///< Gyroscope sensitivity at 2000dps */
 
 /** Bandwidth settings */
 /* Accel Bandwidth */
@@ -342,8 +334,8 @@
 #define BMX160_GYRO_BW_OSR4_MODE          0x00
 #define BMX160_GYRO_BW_OSR2_MODE          0x01
 #define BMX160_GYRO_BW_NORMAL_MODE        0x02
-/* Macro for micro tesla (uT) per LSB (1 LSB = 0.1uT) */
-#define BMX160_MAGN_UT_LSB      (0.3F)
+
+#define BMX160_MAGN_UT_LSB      (0.3F)  ///< Macro for micro tesla (uT) per LSB (1 LSB = 0.1uT) */
 /* Output Data Rate settings */
 /* Accel Output data rate */
 #define BMX160_ACCEL_ODR_RESERVED         0x00
@@ -465,11 +457,10 @@
 #define  BMX160_GYRO_FIFO_DOWN_SIX        0x06
 #define  BMX160_GYRO_FIFO_DOWN_SEVEN      0x07
 
-/* Accel Fifo filter enable*/
-#define  BMX160_ACCEL_FIFO_FILT_EN        0x80
 
-/* Gyro Fifo filter enable*/
-#define  BMX160_GYRO_FIFO_FILT_EN         0x08
+#define  BMX160_ACCEL_FIFO_FILT_EN        0x80  //< Accel Fifo filter enable*/
+
+#define  BMX160_GYRO_FIFO_FILT_EN         0x08  //< Gyro Fifo filter enable*/
 
 /** Definitions to check validity of FIFO frames */
 #define FIFO_CONFIG_MSB_CHECK             0x80
@@ -499,17 +490,11 @@
 #define BMX160_ACCEL_SEL            0x03
 #define BMX160_TIME_SEL             0x04
 
-/* Sensor select mask*/
-#define BMX160_SEN_SEL_MASK    0x07
 
-/* Error code mask */
-#define BMX160_ERR_REG_MASK    0x0F
-
-/* bmx160 I2C address */
-#define BMX160_I2C_ADDR                  0x68
-
-/* bmx160 secondary IF address */
-#define BMX160_MAGN_BMM150_I2C_ADDR      0x10
+#define BMX160_SEN_SEL_MASK    0x07            //< Sensor select mask*/
+#define BMX160_ERR_REG_MASK    0x0F            //< Error code mask */
+#define BMX160_I2C_ADDR                  0x68  //< bmx160 I2C address */
+#define BMX160_MAGN_BMM150_I2C_ADDR      0x10  //< bmx160 secondary IF address */
 
 /** bmx160 Length definitions */
 #define BMX160_ONE                        1
@@ -518,11 +503,9 @@
 #define BMX160_FOUR                       4
 #define BMX160_FIVE                       5
 
-/** bmx160 fifo level Margin */
-#define BMX160_FIFO_LEVEL_MARGIN          16
 
-/** bmx160 fifo flush Command */
-#define BMX160_FIFO_FLUSH_VALUE           0xB0
+#define BMX160_FIFO_LEVEL_MARGIN          16  //< bmx160 fifo level Margin */
+#define BMX160_FIFO_FLUSH_VALUE           0xB0  //< bmx160 fifo flush Command */
 
 /** bmx160 offset values for xyz axes of accel */
 #define BMX160_ACCEL_MIN_OFFSET         -128
@@ -1033,7 +1016,7 @@ class DFRobot_BMX160{
      * @brief get the magn, gyro and accel data 
      * @param magn  to store the magn data
      * @param gyro  to store the gyro data
-     * @param gyro  to store the accel data
+     * @param accel  to store the accel data
      */
     void getAllData( sBmx160SensorData_t *magn,  sBmx160SensorData_t *gyro,  sBmx160SensorData_t *accel);
 

@@ -20,8 +20,7 @@ This example is for BMX160 sensor and it oprated via Arduino I2C.
 * [Compatibility](#compatibility)
 * [History](#history)
 * [Credits](#credits)
-<snippet>
-<content>
+
 
 ## Summary
 Provide an raspberrypi library to control the bmx160 to get magnetometer, accelerometer, gyroscope and step counter, via I2C communication.
@@ -63,7 +62,7 @@ $> python read_all_data.py
           @brief reset bmx160 hardware
           @return returns the reset status
           @retval True reset succeeded
-          @retval Fasle reset  failed
+          @retval False  reset  failed
         '''
 
     def set_gyro_range(self, bits):

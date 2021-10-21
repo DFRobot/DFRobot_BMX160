@@ -72,7 +72,7 @@ BMX160九轴传感器集成三个传感器：16位陀螺仪、16位加速度、�
      * @brief 获取陀螺仪、加速计、地磁计数据
      * @param magn  存储地磁计数据
      * @param gyro  存储陀螺仪数据
-     * @param gyro  存储加速计数据
+     * @param accel  存储加速计数据
      */
     void getAllData( sBmx160SensorData_t *magn,  sBmx160SensorData_t *gyro,  sBmx160SensorData_t *accel);
 

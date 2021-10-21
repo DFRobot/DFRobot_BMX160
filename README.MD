@@ -71,7 +71,7 @@ There are two ways to use the library:
      * @brief get the magn, gyro and accel data 
      * @param magn  to store the magn data
      * @param gyro  to store the gyro data
-     * @param gyro  to store the accel data
+     * @param accel  to store the accel data
      */
     void getAllData( sBmx160SensorData_t *magn,  sBmx160SensorData_t *gyro,  sBmx160SensorData_t *accel);
 
