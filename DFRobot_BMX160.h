@@ -13,7 +13,9 @@
 #include<Wire.h>
 #include<SPI.h>
 
+#if !defined(LITTLE_ENDIAN) && !defined(BIG_ENDIAN)
 #define LITTLE_ENDIAN 1
+#endif
 
 /** Mask definitions */
 #define BMX160_ACCEL_BW_MASK                     0x70
