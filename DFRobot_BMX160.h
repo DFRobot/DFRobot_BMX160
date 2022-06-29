@@ -13,10 +13,6 @@
 #include<Wire.h>
 #include<SPI.h>
 
-#if !defined(LITTLE_ENDIAN) && !defined(BIG_ENDIAN)
-#define LITTLE_ENDIAN 1
-#endif
-
 /** Mask definitions */
 #define BMX160_ACCEL_BW_MASK                     0x70
 #define BMX160_ACCEL_ODR_MASK                    0x0F
@@ -713,14 +709,14 @@ typedef enum {
  * @brief  Structure configuring Interrupt pins
  */
 typedef struct {
-#if LITTLE_ENDIAN == 1
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
   uint16_t outputEn :1;    /**< To enable either INT1 or INT2 pin as output. 0- output disabled ,1- output enabled */
   uint16_t outputMode :1;  /**< 0 - push-pull 1- open drain,only valid if outputEn is set 1 */
   uint16_t outputType :1;  /**< 0 - active low , 1 - active high level.if outputEn is 1,this applies to interrupts,else PMU_trigger */
   uint16_t edgeCtrl :1;    /**< 0 - level trigger , 1 - edge trigger  */
   uint16_t inputEn :1;     /**< To enable either INT1 or INT2 pin as input. 0 - input disabled ,1 - input enabled */
   uint16_t latchDur :4;    /**< latch duration*/
-#elif BIG_ENDIAN == 1 
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
   uint16_t latchDur : 4;   /**< latch duration*/
   uint16_t inputEn : 1;    /**< Latched,non-latched or temporary interrupt modes */
   uint16_t edgeCtrl : 1;   /**< 1 - edge trigger, 0 - level trigger */
@@ -735,14 +731,14 @@ typedef struct {
  * @brief  Tap interrupt structure
  */
 typedef struct {
-#if LITTLE_ENDIAN == 1
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
   uint16_t tapThr :5;     /**< tap threshold */
   uint16_t tapShock :1;   /**< tap shock */
   uint16_t tapQuiet :1;   /**< tap quiet */
   uint16_t tapDur :3;     /**< tap duration */
   uint16_t tapDataSrc :1; /**< data source 0- filter & 1 pre-filter*/
   uint16_t tapEn :1;      /**< tap enable, 1 - enable, 0 - disable */
-#elif BIG_ENDIAN == 1
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
   uint16_t tapEn :1;      /**< tap enable, 1 - enable, 0 - disable */
   uint16_t tapDataSrc :1; /**< data source 0- filter & 1 pre-filter*/
   uint16_t tapDur : 3;    /**< tap duration */
@@ -757,7 +753,7 @@ typedef struct {
  * @brief  Slope interrupt structure
  */
 typedef struct {
-#if LITTLE_ENDIAN == 1
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
   uint8_t anymotionEn :1;      /**< 1 any-motion enable, 0 - any-motion disable */
   uint8_t anymotionX :1;       /**< slope interrupt x, 1 - enable, 0 - disable */
   uint8_t anymotionY :1;       /**< slope interrupt y, 1 - enable, 0 - disable */
@@ -765,7 +761,7 @@ typedef struct {
   uint8_t anymotionDur :2;     /**< slope duration */
   uint8_t anymotionDataSrc :1; /**< data source 0- filter & 1 pre-filter*/
   uint8_t anymotionThr;        /**< slope threshold */
-#elif BIG_ENDIAN == 1
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
   uint8_t anymotionThr;        /**< slope threshold */
   uint8_t anymotionDataSrc :1; /**< data source 0- filter & 1 pre-filter*/
   uint8_t anymotionDur : 2;    /**< slope duration */
@@ -781,13 +777,13 @@ typedef struct {
  * @brief  Significant motion interrupt structure
  */
 typedef struct  {
-#if LITTLE_ENDIAN == 1
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
   uint8_t sigMotSkip :2;  /**< skip time of sig-motion interrupt */
   uint8_t sigMotProof :2; /**< proof time of sig-motion interrupt */
   uint8_t sigDataSrc :1;  /**< data source 0- filter & 1 pre-filter*/
   uint8_t sigEn :1;       /**< 1 - enable sig, 0 - disable sig & enable anymotion */
   uint8_t sigMotThres;    /**< sig-motion threshold */
-#elif BIG_ENDIAN == 1
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
   uint8_t sigMotThres;    /**< sig-motion threshold */
   uint8_t sigEn :1;       /**< 1 - enable sig, 0 - disable sig & enable anymotion */
   uint8_t sigDataSrc :1;  /**< data source 0- filter & 1 pre-filter*/
@@ -801,13 +797,13 @@ typedef struct  {
  * @brief  Step detector interrupt structure
  */
 typedef struct  {
-#if LITTLE_ENDIAN == 1
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
   uint16_t stepDetectorEn :1;    /**< 1- step detector enable, 0- step detector disable */
   uint16_t minThreshold :2;      /**< minimum threshold */
   uint16_t steptimeMin :3;       /**< minimal detectable step time */
   uint16_t stepDetectorMode :2;  /**< enable step counter mode setting */
   uint16_t stepMinBuf :3;        /**< minimum step buffer size*/
-#elif BIG_ENDIAN == 1 
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
   uint16_t stepMinBuf :3;        /**< minimum step buffer size*/
   uint16_t stepDetectorMode : 2; /**< enable step counter mode setting */
   uint16_t steptimeMin : 3;      /**< minimal detectable step time */
@@ -821,7 +817,7 @@ typedef struct  {
  * @brief  No motion interrupt structure
  */
 typedef struct {
-#if LITTLE_ENDIAN == 1
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
   uint16_t noMotionX :1;     /**< no motion interrupt x */
   uint16_t noMotionY :1;     /**< no motion interrupt y */
   uint16_t noMotionZ :1;     /**< no motion interrupt z */
@@ -829,7 +825,7 @@ typedef struct {
   uint16_t noMotionSel :1;   /**< no motion sel , 1 - enable no-motion ,0- enable slow-motion */
   uint16_t noMotionSrc :1;   /**< data source 0- filter & 1 pre-filter*/
   uint8_t noMotionThres;     /**< no motion threshold */
-#elif BIG_ENDIAN == 1
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
   uint8_t noMotionThres;     /**< no motion threshold */
   uint16_t noMotionSrc :1;   /**< data source 0- filter & 1 pre-filter*/
   uint16_t noMotionSel : 1;  /**< no motion sel , 1 - enable no-motion ,0- enable slow-motion */
@@ -845,7 +841,7 @@ typedef struct {
  * @brief  Orientation interrupt structure
  */
 typedef struct {
-#if LITTLE_ENDIAN == 1
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
   uint16_t orientMode :2;      /**< thresholds for switching between the different orientations */
   uint16_t orientBlocking :2;  /**< blocking_mode */
   uint16_t orientHyst :4;      /**< Orientation interrupt hysteresis */
@@ -853,7 +849,7 @@ typedef struct {
   uint16_t orientUdEn :1;      /**< Enable/disable Orientation interrupt */
   uint16_t axesEx :1;          /**< exchange x- and z-axis in algorithm ,0 - z, 1 - x */
   uint8_t orientEn :1;         /**< 1 - orient enable, 0 - orient disable */
-#elif BIG_ENDIAN == 1
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
   uint8_t orientEn :1;         /**< 1 - orient enable, 0 - orient disable */
   uint16_t axesEx : 1;         /**< exchange x- and z-axis in algorithm ,0 - z, 1 - x */
   uint16_t orientUdEn : 1;     /**< Enable/disable Orientation interrupt */
@@ -869,12 +865,12 @@ typedef struct {
  * @brief  Flat interrupt structure 
  */
 typedef struct  {
-#if LITTLE_ENDIAN == 1
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
   uint16_t flatTheta :6;        /**< flat threshold */
   uint16_t flatHy :3;           /**< flat interrupt hysteresis */
   uint16_t flatHoldTime :2;     /**< delay time for which the flat value must remain stable for the flat interrupt to be generated */
   uint16_t flatEn :1;           /**< 1 - flat enable, 0 - flat disable */
-#elif BIG_ENDIAN == 1
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
   uint16_t flatEn :1;           /**< 1 - flat enable, 0 - flat disable */
   uint16_t flatHoldTime : 2;    /**< delay time for which the flat value must remain stable for the flat interrupt to be generated */
   uint16_t flatHy : 3;          /**< flat interrupt hysteresis */
@@ -887,14 +883,14 @@ typedef struct  {
  * @brief  Low-g interrupt structure
  */
 typedef struct {
-#if LITTLE_ENDIAN == 1
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
   uint8_t lowDur;        /**< low-g interrupt trigger delay */
   uint8_t lowThres;      /**< low-g interrupt trigger threshold */
   uint8_t lowHyst :2;    /**< hysteresis of low-g interrupt */
   uint8_t lowMode :1;    /**< 0 - single-axis mode ,1 - axis-summing mode */
   uint8_t lowDataSrc :1; /**< data source 0- filter & 1 pre-filter */
   uint8_t lowEn :1;      /**< 1 - enable low-g, 0 - disable low-g */
-#elif BIG_ENDIAN == 1 
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
   uint8_t lowEn :1;      /**< 1 - enable low-g, 0 - disable low-g */
   uint8_t lowDataSrc :1; /**< data source 0- filter & 1 pre-filter */
   uint8_t lowMode : 1;   /**< 0 - single-axis mode ,1 - axis-summing mode */
@@ -909,7 +905,7 @@ typedef struct {
  * @brief  High-g interrupt structure
  */
 typedef struct {
-#if LITTLE_ENDIAN == 1
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
   uint8_t high_g_x :1;      /**< High-g interrupt x, 1 - enable, 0 - disable */
   uint8_t high_g_y :1;      /**< High-g interrupt y, 1 - enable, 0 - disable */
   uint8_t high_g_z :1;      /**< High-g interrupt z, 1 - enable, 0 - disable */
@@ -917,7 +913,7 @@ typedef struct {
   uint8_t highDataSrc :1;   /**< data source 0- filter & 1 pre-filter */
   uint8_t highThres;        /**< High-g threshold */
   uint8_t highDur;          /**< High-g duration */
-#elif BIG_ENDIAN == 1
+#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
   uint8_t highDur;          /**< High-g duration */
   uint8_t highThres;        /**< High-g threshold */
   uint8_t highDataSrc :1;   /**< data source 0- filter & 1 pre-filter */
