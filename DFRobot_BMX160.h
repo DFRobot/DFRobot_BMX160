@@ -984,7 +984,7 @@ class DFRobot_BMX160{
      * @retval true Initialization succeeded
      * @retval false Initialization  failed
      */
-    bool begin();
+    bool begin(uint8_t device_addr=0x68);
 
     /**
      * @fn setGyroRange

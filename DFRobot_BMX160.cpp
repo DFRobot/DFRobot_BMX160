@@ -36,8 +36,9 @@ const uint8_t int_mask_lookup_table[13] = {
     BMX160_INT2_FIFO_WM_MASK
 };
 
-bool DFRobot_BMX160::begin()
+bool DFRobot_BMX160::begin(uint8_t device_addr=0x68)
 {
+    _addr=device_addr;
     _pWire->begin();
     if (scan() == true){
         softReset();
