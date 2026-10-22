@@ -38,11 +38,12 @@ BMX160九轴传感器集成三个传感器：16位陀螺仪、16位加速度、�
     /**
      * @fn begin
      * @brief 初始化iic
+     * @param device_addr I2C 地址：0x68（SDO 接低，默认）或 0x69（SDO 接高）
      * @return 返回初始化结果
      * @retval true 初始化成功
      * @retval false 初始化失败
      */
-    bool begin();
+    bool begin(uint8_t device_addr=0x68);
 
     /**
      * @fn setGyroRange

@@ -5,8 +5,8 @@
  * @license     The MIT License (MIT)
  * @author [luoyufeng] (yufeng.luo@dfrobot.com)
  * @maintainer [Fary](feng.yang@dfrobot.com)
- * @version  V1.0
- * @date  2021-10-20
+ * @version  V1.0.3
+ * @date  2026-10-22
  * @url https://github.com/DFRobot/DFRobot_BMX160
  */
 #include<Arduino.h>
@@ -980,6 +980,7 @@ class DFRobot_BMX160{
     /**
      * @fn begin
      * @brief set the i2c addr and init the i2c.
+     * @param device_addr I2C address: 0x68 (SDO low, default) or 0x69 (SDO high)
      * @return returns the initialization status
      * @retval true Initialization succeeded
      * @retval false Initialization  failed

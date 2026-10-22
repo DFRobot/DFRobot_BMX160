@@ -37,11 +37,12 @@ There are two ways to use the library:
     /**
      * @fn begin
      * @brief set the i2c addr and init the i2c.
+     * @param device_addr I2C address: 0x68 (SDO low, default) or 0x69 (SDO high)
      * @return returns the initialization status
      * @retval true Initialization succeeded
      * @retval false Initialization  failed
      */
-    bool begin();
+    bool begin(uint8_t device_addr=0x68);
 
     /**
      * @fn setGyroRange

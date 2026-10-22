@@ -5,8 +5,8 @@
  * @license     The MIT License (MIT)
  * @author [luoyufeng] (yufeng.luo@dfrobot.com)
  * @maintainer [Fary](feng.yang@dfrobot.com)
- * @version  V1.0
- * @date  2021-10-20
+ * @version  V1.0.3
+ * @date  2026-10-22
  * @url https://github.com/DFRobot/DFRobot_BMX160
  */
 #include "DFRobot_BMX160.h"
@@ -36,7 +36,7 @@ const uint8_t int_mask_lookup_table[13] = {
     BMX160_INT2_FIFO_WM_MASK
 };
 
-bool DFRobot_BMX160::begin(uint8_t device_addr=0x68)
+bool DFRobot_BMX160::begin(uint8_t device_addr)
 {
     _addr=device_addr;
     _pWire->begin();
