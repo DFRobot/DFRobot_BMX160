@@ -111,6 +111,7 @@ There are two ways to use the library:
 
 ## History
 
+- 2026/10/22 - Version 1.0.2 released. setAccelRange()/setGyroRange() now write the selected range to the sensor instead of only changing the scaling factor (fixes issue #8).
 - 2021/10/20 - Version 1.0.1 released.
 - 2019/06/25 - Version 1.0.0 released.
 
